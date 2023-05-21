@@ -157,9 +157,9 @@ The following notebooks, scripts, and modules have been developed for the datase
     FMA_KEY=MYKEY  # only if you want to query the freemusicarchive.org API
     ```
 
-1. Open Jupyter or run a notebook.
+1. Open Jupyter or run a notebook (remember to use the jupyter of your environment!).
     ```sh
-    jupyter notebook
+    ~/anaconda3/bin/jupyter notebook
     make usage.ipynb
     ```
 
