@@ -1,7 +1,7 @@
 Kepras: libreria per Keras per fare audio preprocessing DSP (ad esempio resampling, STFT transform o Mel Spectrogram), utilizzabile con Librosa.
 
 Sembra che lo mel spectrogram (chiamato anche MFC) sia una delle rappresentazioni che più simulano il comportamento dell'orecchio umano che ascolta un segnale sonoro.
-Si potrebbe usare Chroma features per identificare le progressioni di accordi, dato che diconno che MFC non c'entra molto con la genre recognition, siccome è più utile per identificare il timbro.
+Si potrebbe usare Chroma features per identificare le progressioni di accordi, dato che diconno che MFC non c'entra molto con la genre recognition, siccome è più utile per identificare il timbro (https://ieeexplore.ieee.org/document/9012215).
 
 
 paper interessante: https://arxiv.org/pdf/1609.04243.pdf
