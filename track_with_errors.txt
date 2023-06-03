@@ -1,0 +1,5 @@
+Tracks which caused error during stft small dataset creation (6 tracks): 
+
+ ['./data/fma_small/098/098565.mp3' './data/fma_small/098/098567.mp3'
+ './data/fma_small/098/098569.mp3' './data/fma_small/099/099134.mp3'
+ './data/fma_small/108/108925.mp3' './data/fma_small/133/133297.mp3']
