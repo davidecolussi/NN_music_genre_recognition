@@ -1,9 +1,76 @@
 nnet1:
-batch_size=256, num_epochs=10, learning_rate=0.1
-Loss: 2.15, Average accuracy: 12.5 (Each of the 10 epochs has same results)
+--------------------------------------------
+Epoch 1/10: 100%
+125/125 [08:20<00:00, 4.20s/batch, avg_loss=1.93, acc=37.1, avg_acc=33.4]
+Epoch [1/10], Loss: 1.9256. Accuracy: 33.390625
+Epoch 2/10: 100%
+125/125 [08:23<00:00, 4.10s/batch, avg_loss=1.86, acc=40.8, avg_acc=40]
+Epoch [2/10], Loss: 1.8649. Accuracy: 40.003125
+Epoch 3/10: 100%
+125/125 [08:02<00:00, 4.18s/batch, avg_loss=1.83, acc=46.1, avg_acc=44]
+Epoch [3/10], Loss: 1.8268. Accuracy: 43.959375
+Epoch 4/10: 100%
+125/125 [08:22<00:00, 5.18s/batch, avg_loss=1.8, acc=46.5, avg_acc=46.4]
+Epoch [4/10], Loss: 1.8039. Accuracy: 46.3859375
+Epoch 5/10: 100%
+125/125 [07:47<00:00, 4.04s/batch, avg_loss=1.78, acc=52.3, avg_acc=48.6]
+Epoch [5/10], Loss: 1.7823. Accuracy: 48.634375
+Epoch 6/10: 100%
+125/125 [08:11<00:00, 4.33s/batch, avg_loss=1.76, acc=52.7, avg_acc=50.6]
+Epoch [6/10], Loss: 1.7642. Accuracy: 50.6125
+Epoch 7/10: 100%
+125/125 [08:24<00:00, 4.22s/batch, avg_loss=1.75, acc=46.7, avg_acc=51.5]
+Epoch [7/10], Loss: 1.7547. Accuracy: 51.4796875
+Epoch 8/10: 100%
+125/125 [08:55<00:00, 5.20s/batch, avg_loss=1.75, acc=49, avg_acc=52]
+Epoch [8/10], Loss: 1.7504. Accuracy: 51.9859375
+Epoch 9/10: 100%
+125/125 [09:18<00:00, 4.32s/batch, avg_loss=1.73, acc=53.1, avg_acc=53.8]
+Epoch [9/10], Loss: 1.7321. Accuracy: 53.7625
+Epoch 10/10: 100%
+125/125 [08:40<00:00, 4.57s/batch, avg_loss=1.72, acc=52, avg_acc=55]
+Epoch [10/10], Loss: 1.7209. Accuracy: 55.0125
 
-batch_size=256, num_epochs=10, learning_rate=0.001
-Loss: 2.07, Average accuracy: 12.5 (floating between 12.6 and 12.15)
-
-batch_size=512, num_epochs=23, learning_rate=0.01
-Loss: 2.15 Accuracy: 12.5
+FROM NOW EPOCHS STARTS FROM 11:
+Epoch 1/50: 100%
+125/125 [09:37<00:00, 4.61s/batch, avg_loss=1.71, acc=57.2, avg_acc=56]
+Epoch [1/50], Loss: 1.7101. Accuracy: 56.0046875
+Epoch 2/50: 100%
+125/125 [10:09<00:00, 4.43s/batch, avg_loss=1.7, acc=53.3, avg_acc=56.7]
+Epoch [2/50], Loss: 1.7038. Accuracy: 56.7125
+Epoch 3/50: 100%
+125/125 [08:46<00:00, 4.52s/batch, avg_loss=1.7, acc=63.9, avg_acc=57.4]
+Epoch [3/50], Loss: 1.6970. Accuracy: 57.4390625
+Epoch 4/50: 100%
+125/125 [09:47<00:00, 5.08s/batch, avg_loss=1.7, acc=55.5, avg_acc=57.3]
+Epoch [4/50], Loss: 1.6977. Accuracy: 57.2828125
+Epoch 5/50: 100%
+125/125 [10:45<00:00, 5.79s/batch, avg_loss=1.71, acc=55.1, avg_acc=56.4]
+Epoch [5/50], Loss: 1.7067. Accuracy: 56.44375
+Epoch 6/50: 100%
+125/125 [09:40<00:00, 4.77s/batch, avg_loss=1.69, acc=60.5, avg_acc=58.4]
+Epoch [6/50], Loss: 1.6878. Accuracy: 58.378125
+Epoch 7/50: 100%
+125/125 [08:58<00:00, 4.53s/batch, avg_loss=1.69, acc=53.7, avg_acc=57.7]
+Epoch [7/50], Loss: 1.6939. Accuracy: 57.7375
+Epoch 8/50: 100%
+125/125 [09:01<00:00, 4.32s/batch, avg_loss=1.69, acc=57.8, avg_acc=58.6]
+Epoch [8/50], Loss: 1.6853. Accuracy: 58.6171875
+Epoch 9/50: 100%
+125/125 [08:57<00:00, 4.54s/batch, avg_loss=1.68, acc=60.7, avg_acc=59]
+Epoch [9/50], Loss: 1.6810. Accuracy: 59.0296875
+Epoch 10/50: 100%
+125/125 [09:08<00:00, 4.50s/batch, avg_loss=1.68, acc=58.8, avg_acc=59.2]
+Epoch [10/50], Loss: 1.6789. Accuracy: 59.25
+Epoch 11/50: 100%
+125/125 [09:43<00:00, 5.01s/batch, avg_loss=1.69, acc=60.2, avg_acc=58.5]
+Epoch [11/50], Loss: 1.6865. Accuracy: 58.5265625
+Epoch 12/50: 100%
+125/125 [09:53<00:00, 4.70s/batch, avg_loss=1.67, acc=65, avg_acc=60.4]
+Epoch [12/50], Loss: 1.6680. Accuracy: 60.3984375
+Epoch 13/50: 100%
+125/125 [10:23<00:00, 5.89s/batch, avg_loss=1.67, acc=57.4, avg_acc=60.6]
+Epoch [13/50], Loss: 1.6663. Accuracy: 60.59375
+Epoch 14/50: 100%
+125/125 [09:31<00:00, 4.95s/batch, avg_loss=1.66, acc=60.4, avg_acc=61.1]
+EARLY STOPPED 
