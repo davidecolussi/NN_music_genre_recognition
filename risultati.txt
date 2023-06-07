@@ -4,3 +4,6 @@ Loss: 2.15, Average accuracy: 12.5 (Each of the 10 epochs has same results)
 
 batch_size=256, num_epochs=10, learning_rate=0.001
 Loss: 2.07, Average accuracy: 12.5 (floating between 12.6 and 12.15)
+
+batch_size=512, num_epochs=23, learning_rate=0.01
+Loss: 2.15 Accuracy: 12.5
