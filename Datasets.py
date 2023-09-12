@@ -1,6 +1,83 @@
 from torch.utils.data import Dataset
 import torch
 import numpy as np
+import os
+import utils 
+from tkinter import Tcl # file sorting by name
+
+def create_single_dataset(folder_path, tracks_dataframe, genre_dictionary):    
+    labels = []
+   
+    _, file_list = get_sorted_file_paths(folder_path)
+    
+    for i,file in enumerate(file_list):
+        #print("considering file:",file, "({}/{})".format(i,len(file_list)))
+        track_id_clip_id = file.split('.')[0]
+        track_id = track_id_clip_id.split('_')[0]
+        #print("track id with clip: {}, track id: {}".format(track_id_clip_id, track_id))
+        genre = tracks_dataframe.loc[int(track_id)]
+        #print("genre from dataframe: ", genre)
+        label = genre_dictionary[genre]
+        #print("label from dictionary:",label)
+        labels.append(label)
+    print("labels length: {}".format(len(labels)))
+    return labels
+    
+
+#create the train,validation and test vectors using the files in the train/validation/test folders
+def create_dataset_splitted(folder_path):
+    train_folder = os.path.join(folder_path,'train') # concatenate train folder to path
+    validation_folder = os.path.join(folder_path,'validation') # concatenate train folder to path
+    test_folder = os.path.join(folder_path,'test') # concatenate train folder to path
+    
+    print("train_folder:",train_folder)
+    print("validation_folder:",validation_folder)
+    print("test_folder:",test_folder,"\n")
+    
+    AUDIO_DIR = os.environ.get('AUDIO_DIR')
+    print("audio directory: ",AUDIO_DIR)
+    print("Loading tracks.csv...")
+    tracks = utils.load('data/fma_metadata/tracks.csv')
+    
+    #get only the small subset of the dataset
+    small = tracks[tracks['set', 'subset'] <= 'small']
+    print("small dataset shape:",small.shape)    
+
+    small_training = small.loc[small[('set', 'split')] == 'training']['track']
+    small_validation = small.loc[small[('set', 'split')] == 'validation']['track']
+    small_test = small.loc[small[('set', 'split')] == 'test']['track']
+
+    print("Track.csv: {} training samples, {} validation samples, {} test samples\n".format(len(small_training), len(small_validation), len(small_test)))
+
+    small_training_top_genres = small_training['genre_top']
+    small_validation_top_genres = small_validation['genre_top']
+    small_test_top_genres = small_test['genre_top']
+    
+    #create dictionary of genre classes:
+    unique_genres = small_training_top_genres.unique()
+    unique_genres = np.array(unique_genres)
+    print("there are {} unique genres".format(len(unique_genres)))
+    genre_dictionary = {}
+    for i,genre in enumerate(unique_genres):
+        genre_dictionary[genre] = i
+    print("Dictionary of genres created:",genre_dictionary)
+    
+    
+    Y_train = create_single_dataset(train_folder, small_training_top_genres, genre_dictionary)
+    Y_validation = create_single_dataset(validation_folder, small_validation_top_genres, genre_dictionary)
+    Y_test = create_single_dataset(test_folder, small_test_top_genres, genre_dictionary)
+    
+    return Y_train, Y_validation, Y_test
+ 
+def get_sorted_file_paths(folder_path):
+    file_list = os.listdir(folder_path)
+    #sort the dataset files in alphabetical order (important to associate correct labels created using track_id in track.csv)
+    file_list = Tcl().call('lsort', '-dict', file_list) # sort file by name: 2_0,2_1, ... 2_9,3_0, ... 400_0,400_1, ...
+    file_paths = [os.path.join(folder_path, file_name) for file_name in file_list] #join filename with folder path
+    #print("There are {} in the folder: {}".format(len(file_list),file_list))
+    return file_paths, file_list
+
+
 
 # Define the custom class for accessing our dataset
 class DatasetEnsemble(Dataset):
