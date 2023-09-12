@@ -133,7 +133,7 @@ class NNet1_Small(nn.Module):
         self.dropout = nn.Dropout(0.3)
         self.dense1 = nn.Linear(256, 64)
         self.bn4 = nn.BatchNorm1d(64)
-        self.dense2 = nn.Linear(64, 8)
+        self.dense3 = nn.Linear(64, 8)
         self.softmax = nn.Softmax(dim=1)
     
     def forward(self, x):
@@ -155,7 +155,7 @@ class NNet1_Small(nn.Module):
         x = self.dropout(x)
         x = self.bn4(x)
         x = self.relu(x)
-        x = self.dense2(x)
+        x = self.dense3(x)
         x = self.softmax(x)
         return x
 
