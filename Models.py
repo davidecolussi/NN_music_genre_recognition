@@ -155,7 +155,7 @@ class NNet1_Small(nn.Module):
         x = self.dropout(x)
         x = self.bn4(x)
         x = self.relu(x)
-        x = self.dense3(x)
+        x = self.dense2(x)
         x = self.softmax(x)
         return x
 
